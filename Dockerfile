@@ -16,8 +16,6 @@ RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua
 # Copy requirements
 COPY requirements.txt .
 
-COPY .env .
-
 # Copy project files
 COPY . .
 
@@ -28,7 +26,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8080
 
 # Run FastAPI with uvicorn
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+#CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
 
 # Replace last CMD in prod
-#CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]
